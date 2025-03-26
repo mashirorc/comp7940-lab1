@@ -4,12 +4,19 @@ services:
     image: comp7940-lab1-chatbot:latest
     environment:
       - TELEGRAM_TOKEN=
-      - REDIS_HOST=redis-16197.c283.us-east-1-4.ec2.redns.redis-cloud.com
-      - REDIS_PWD=CjNKlZAhBIO4PThy7i7wFJ6RxT8bKoiE
-      - REDIS_PORT=16197
+      - REDIS_HOST=redis
+      - REDIS_PWD=comp7940passwordlab8
+      - REDIS_PORT=6379
       - REDIS_DECODE=True
       - REDIS_USERNAME=default
       - GPT_URL=https://genai.hkbu.edu.hk/general/rest
       - GPT_MODEL=gpt-4-o-mini
       - GPT_VERSION=2024-05-01-preview
       - GPT_TOKEN=
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command:  ["/usr/local/etc/redis/redis.conf"]
