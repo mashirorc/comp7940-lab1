@@ -1,0 +1,5 @@
+version: '3'
+services:
+  chatbot:
+    image: comp7940-lab1-chatbot:latest
+    env_file: "secrets.env"
