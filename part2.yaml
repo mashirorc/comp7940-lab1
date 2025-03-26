@@ -2,4 +2,13 @@ version: '3'
 services:
   chatbot:
     image: comp7940-lab1-chatbot:latest
-    env_file: "secrets.env"
+      - TELEGRAM_TOKEN=7863313699:AAGynEmo1pc7G7nXuibLqBQc38zyozUuKGg
+      - REDIS_HOST=redis-16197.c283.us-east-1-4.ec2.redns.redis-cloud.com
+      - REDIS_PWD=CjNKlZAhBIO4PThy7i7wFJ6RxT8bKoiE
+      - REDIS_PORT=16197
+      - REDIS_DECODE=True
+      - REDIS_USERNAME=default
+      - GPT_URL=https://genai.hkbu.edu.hk/general/rest
+      - GPT_MODEL=gpt-4-o-mini
+      - GPT_VERSION=2024-05-01-preview
+      - GPT_TOKEN=4b3b6aa1-b8b5-4d90-8ab9-3675684095b8
